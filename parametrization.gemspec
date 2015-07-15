@@ -15,11 +15,15 @@ Gem::Specification.new do |spec|
 
   # spec.description   = %q{TODO: Write a longer description or delete this line.}
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject{ |f| f.match(%r{^(test|spec|features)/}) }
+
+  spec.add_dependency 'rails',      '~> 4.2'    # I plan to relax this requirement once I have tested with earlier versions.
+  spec.add_dependency 'parametric', '~> 0.0.5'
 
   spec.require_paths = %w(lib)
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake",    "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'rake',    '~> 10.0'
+  spec.add_development_dependency 'rspec',   '~> 3.3'
+
 end
