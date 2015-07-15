@@ -1,0 +1,5 @@
+TODO:
+
+  * Add specs
+  * Add generator for config file
+  * Write documentation
