@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = %w(lib)
 
-  spec.add_dependency 'rails',      '~> 4.2'
+  spec.add_dependency 'rails', ['>= 4.2.0', '< 6.0']
   spec.add_dependency 'parametric', '~> 0.0', '>= 0.0.5'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
