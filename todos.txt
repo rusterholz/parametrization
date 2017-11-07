@@ -1,5 +1,5 @@
 TODO:
 
   * Add specs
-  * Add generator for config file
+  * Test generator
   * Write documentation

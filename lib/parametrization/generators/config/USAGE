@@ -1,0 +1,8 @@
+Description:
+    Generates the Parametrization configuration file.
+
+Example:
+    rails generate parametrization:config
+
+    This will create:
+        config/parametrization.rb

@@ -1,6 +1,7 @@
 # Parametrization
 
-Simple, powerful, and flexible parameter filtering for Rails.
+##### Simple, powerful, and flexible parameter filtering for Rails.
+
 
 ## Installation
 
@@ -20,7 +21,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here.
+First, run the included generator to set up a default configuration file:
+
+    $ rails generate parametrization:config
+
+This will create a file at `config/parametrization.rb`.
 
 ## Development
 
