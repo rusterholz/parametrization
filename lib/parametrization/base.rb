@@ -20,6 +20,10 @@ module Parametrization
       @params.dup.with_indifferent_access
     end
 
+    def empty?
+      to_h.empty?
+    end
+
     class << self # Parametrization::Base
 
       # Defines subclasses of Base, tailored to each set of attributes.
