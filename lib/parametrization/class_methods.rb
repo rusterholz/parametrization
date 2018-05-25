@@ -42,8 +42,19 @@ module Parametrization
       raise 'Parametrization not yet configured' unless @configured
       whitelist ||= []
       px = params.respond_to?( :permit ) ? params : ActionController::Parameters.new( params )
-      px = px[ name ] if( name && px.has_key?( name ) && px[ name ].is_a?( Hash ) )
+      px = dig(px, name)
       px.permit( *whitelist )
+    end
+
+    # dig into a hashlike object, returning a nested value if it exists at the
+    # specified key and is also hashlike.  otherwise, return the original object.
+    def dig(hashlike, key)
+      return hashlike unless hashlike.has_key?(key)
+      nested_value = hashlike[key]
+      case nested_value
+      when Hash, ActionController::Parameters then nested_value
+      else hashlike
+      end
     end
 
     # Define shortcut methods in the including class that build and return instances of the
@@ -52,7 +63,9 @@ module Parametrization
     def build_shortcuts_on( controller_class )
       @class_method_map.each do |klass,meth|
         k = klass.constantize
-        controller_class.send( :define_method, meth ){ k.new( params ) }
+        controller_class.send( :define_method, meth ) do
+          k.new(params)
+        end
       end
     end
 
